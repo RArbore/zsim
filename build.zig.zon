@@ -1,0 +1,15 @@
+.{
+    .name = .zsim,
+    .fingerprint = 0xf44d84e6be225519,
+    .version = "0.0.0",
+    .dependencies = .{
+        .raylib = .{
+            .path = "external/raylib"
+        }
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src"
+    }
+}
