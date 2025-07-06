@@ -8,6 +8,8 @@ const Box = struct {
     theta: f32,
     width: f32,
     height: f32,
+    velocity_x: f32,
+    velocity_y: f32,
 };
 
 pub const SolidList = std.MultiArrayList(Box);
@@ -24,6 +26,8 @@ pub fn addRandomSolid(list: *SolidList, allocator: std.mem.Allocator) !void {
         .theta = theta,
         .width = width,
         .height = height,
+        .velocity_x = 0.0,
+        .velocity_y = 0.0,
     });
 }
 

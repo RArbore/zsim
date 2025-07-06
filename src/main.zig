@@ -1,5 +1,6 @@
 const std = @import("std");
 
+const physics = @import("physics.zig");
 const solid = @import("solid.zig");
 
 const rl = @cImport(@cInclude("raylib.h"));
@@ -21,10 +22,13 @@ pub fn main() !void {
             try solid.addRandomSolid(&solids, allocator);
         }
 
-        rl.BeginDrawing();
-        defer rl.EndDrawing();
+        const dt = rl.GetFrameTime();
+        physics.tick_solids(&solids, dt);
 
+        rl.BeginDrawing();
         rl.ClearBackground(rl.BLACK);
         solid.drawSolids(solids);
+        rl.DrawFPS(0, 0);
+        rl.EndDrawing();
     }
 }
